@@ -33,10 +33,18 @@ app.post('/send', async (req, res) => {
 
 
     let mailOptions = {
-      from: "jona_boss@msn.com", // Replace this with your email
-      to: email, // to the email from the request body
-      subject: "Hello from Node.js Server",
-      text: "This email was sent from Node.js server",
+      from: process.env.EMAIL_USER, // The email address that the server is sending from
+      to: email, // Should be Sabines email address
+      subject: "Hello from Node.js Server", // email subject
+      text: `Navn:${data.navn}, Email:${data.email}, telefon:${data.telefon}, Bedsked:${data.besked} `, // email content
+      html: `
+    <h1 style="color: blue;">Du har modtaget en mail fra: ${data.navn}</h1>
+      <address style=">
+      Telefon: ${data.telefon},
+      Email: ${data.email}
+      </address>
+    <p style="color: green;">Besked: ${data.besked}</p>
+  `,
     };
 
    try {
