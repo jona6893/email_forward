@@ -13,13 +13,13 @@ app.post('/send', async (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail', // Replace this with your email service
         auth: {
-            user: 'your-email@gmail.com', // Replace this with your email
-            pass: 'your-password' // Replace this with your password
+            user: 'weldon.jona@gmail.com', // Replace this with your email
+            pass: 'PoXRGoetA7JrTfgfco' // Replace this with your password
         }
     });
 
     let mailOptions = {
-        from: 'your-email@gmail.com', // Replace this with your email
+        from: 'weldon.jona@gmail.com', // Replace this with your email
         to: email, // to the email from the request body
         subject: 'Hello from Node.js Server',
         text: 'This email was sent from Node.js server'
