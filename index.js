@@ -15,11 +15,11 @@ app.post('/send', async (req, res) => {
     const {email} = req.body;
     
     let transporter = nodemailer.createTransport({
-        service: 'gmail', // Replace this with your email service
-        auth: {
-            user: 'weldon.jona@gmail.com', // Replace this with your email
-            pass: 'PoXRGoetA7JrTfgfco' // Replace this with your password
-        }
+      service: "smtp.mail2one.com", // Replace this with your email service
+      auth: {
+        user: "jameswood@mail2one.com", // Replace this with your email
+        pass: "YV*jT4!!EUyQVDe", // Replace this with your password
+      },
     });
 
     let mailOptions = {
