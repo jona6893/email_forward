@@ -15,6 +15,9 @@ app.use(
 app.post('/send', async (req, res) => {
     const { email, data } = req.body;
     
+    console.log(email);
+    console.log(data);
+
   let transporter = nodemailer.createTransport({
     host: "smtp.office365.com",
     port: 587,
