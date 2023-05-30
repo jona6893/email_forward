@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+require("dotenv").config();
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,13 +15,19 @@ app.use(
 app.post('/send', async (req, res) => {
     const { email, data } = req.body;
     
-    let transporter = nodemailer.createTransport({
-      service: "smtp.mail2one.com", // Replace this with your email service
-      auth: {
-        user: "jameswood@mail2one.com", // Replace this with your email
-        pass: "YV*jT4!!EUyQVDe", // Replace this with your password
-      },
-    });
+  let transporter = nodemailer.createTransport({
+    host: "smtp.office365.com",
+    port: 587,
+    secure: false, // true for 465, false for 587
+    auth: {
+      user: process.env.EMAIL_USER, // use your email environment variable
+      pass: process.env.EMAIL_PASSWORD, // use your password environment variable
+    },
+    tls: {
+      ciphers: "SSLv3",
+    },
+  });
+
 
     let mailOptions = {
         from: 'weldon.jona@gmail.com', // Replace this with your email
