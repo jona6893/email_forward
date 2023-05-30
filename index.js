@@ -33,7 +33,7 @@ app.post('/send', async (req, res) => {
 
 
     let mailOptions = {
-      from: process.env.EMAIL_USER, // Replace this with your email
+      from: "jona_boss@msn.com", // Replace this with your email
       to: email, // to the email from the request body
       subject: "Hello from Node.js Server",
       text: "This email was sent from Node.js server",
