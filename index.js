@@ -29,12 +29,13 @@ app.post('/send', async (req, res) => {
         text: 'This email was sent from Node.js server'
     };
 
-    try {
-        await transporter.sendMail(mailOptions);
-        res.status(200).json({message: 'Email sent successfully'});
-    } catch (error) {
-        res.status(500).json({error: 'There was an error sending the email'});
-    }
+   try {
+     await transporter.sendMail(mailOptions);
+     res.status(200).json({ message: "Email sent successfully" });
+   } catch (error) {
+     console.error(error); // Add this line to log the error
+     res.status(500).json({ error: "There was an error sending the email" });
+   }
 });
 
 const PORT = process.env.PORT || 5000;
