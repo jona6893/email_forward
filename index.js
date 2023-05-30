@@ -12,7 +12,7 @@ app.use(
 );
 
 app.post('/send', async (req, res) => {
-    const {email} = req.body;
+    const { email, data } = req.body;
     
     let transporter = nodemailer.createTransport({
       service: "smtp.mail2one.com", // Replace this with your email service
