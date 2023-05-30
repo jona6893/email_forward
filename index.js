@@ -39,10 +39,10 @@ app.post('/send', async (req, res) => {
       text: `Navn:${data.navn}, Email:${data.email}, telefon:${data.telefon}, Bedsked:${data.besked} `, // email content
       html: `
     <h1 style="color: blue;">Du har modtaget en mail fra: ${data.navn}</h1>
-      <address style=">
-      Telefon: ${data.telefon},
-      Email: ${data.email}
-      </address>
+      <p style="color: green">
+      Telefon: ${data.telefon}, <br/>
+      Email: ${data.email}<br/>
+      </p>
     <p style="color: green;">Besked: ${data.besked}</p>
   `,
     };
